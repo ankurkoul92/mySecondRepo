@@ -1,0 +1,31 @@
+<p>second works!</p>
+<form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+    <div>
+        <label>Name</label>
+        <input type="text" formControlName="name" />
+    </div>
+    <div>
+        <label>Username</label>
+        <input type="text" formControlName="username" />
+    </div>
+   
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="myForm.controls.email.errors?.pattern">
+            Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="myForm.controls.email.errors?.required">
+            Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <div>
+        <label>Phone No.</label>
+        <input type="text" formControlName="phone" />
+    </div>
+    <div>
+        <label>Website</label>
+        <input type="text" formControlName="website" />
+    </div>
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+</form>
