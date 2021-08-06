@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../services/models/user.model';
 import { UserService } from '../services/user.service';
@@ -8,7 +8,7 @@ import { UserService } from '../services/user.service';
   templateUrl: './second.component.html',
   styleUrls: ['./second.component.scss']
 })
-export class SecondComponent implements OnInit {
+export class SecondComponent {
 
   newUser: User = {};
 
@@ -25,9 +25,6 @@ export class SecondComponent implements OnInit {
   });
 
   constructor(private userSercive: UserService) { }
-
-  ngOnInit(): void {
-  }
 
   onSubmit() {
     this.newUser.name = this.myForm.get('name')?.value;
@@ -50,7 +47,6 @@ export class SecondComponent implements OnInit {
         lng: "81.1496"
       }
     }
-    console.log(this.newUser)
     this.userSercive.createUser(this.newUser).subscribe(
       data => alert('User created'),
       error => alert('Failed to create user')
