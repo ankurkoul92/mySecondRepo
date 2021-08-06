@@ -21,10 +21,7 @@ export class FirstComponent implements OnInit {
     this.userService.allUsers$.pipe(
       first()
     ).subscribe(
-      (data) => {
-        this.dataSource = data
-        console.log(data)
-      }
+      (data: User[]) => this.dataSource = data
     )
   }
 
